@@ -59,7 +59,7 @@ def scale_boxes(boxes, resized_shape, orig_shape):
     return scaled
 
 def main():
-    device_id = 1
+    device_id = 0
     cap = cv2.VideoCapture(device_id)
     if not cap.isOpened():
         print(f"キャプチャーデバイス {device_id} を開けません")
@@ -78,7 +78,7 @@ def main():
     fps = cap.get(cv2.CAP_PROP_FPS)
     print(f"取得した解像度: {width}x{height}, FPS: {fps}")
 
-    model = YOLO("yolo11n.pt")
+    model = YOLO("yolov8n.pt")
     print(model.names)  # クラス名一覧を表示
     # クラス名リストは必ずモデルから取得
     class_names = model.names
